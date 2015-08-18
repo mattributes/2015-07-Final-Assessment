@@ -1,0 +1,22 @@
+{
+  "name": "final",
+  "version": "1.0.0",
+  "description": "SA",
+  "main": "main.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattributes/2015-07-Final-Assessment.git"
+  },
+  "keywords": [
+    "none"
+  ],
+  "author": "Matt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattributes/2015-07-Final-Assessment/issues"
+  },
+  "homepage": "https://github.com/mattributes/2015-07-Final-Assessment#readme"
+}
