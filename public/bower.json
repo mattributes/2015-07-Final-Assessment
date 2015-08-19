@@ -1,0 +1,20 @@
+{
+  "name": "none",
+  "version": "none",
+  "homepage": "https://github.com/mattributes/2015-07-Final-Assessment",
+  "authors": [
+    "Matt Schaeffer <matt.schaeffer@autodesk.com>"
+  ],
+  "description": "df",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}
