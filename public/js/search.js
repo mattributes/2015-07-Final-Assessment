@@ -26,12 +26,13 @@ $("document").ready( function(){
 		$("#ResultsList").append(li);
 	}
 
-	$("#Search").on("click", function(e){
-		var input = $("#SearchInput").val();
+	var search = function(){
+		var inputVal = $("#SearchInput").val();
+		$("#SearchInput").val("");
 
 		$.ajax({
 			//http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC
-			url: "http://api.giphy.com/v1/gifs/search?q=" + input + "&api_key=dc6zaTOxFJmzC",
+			url: "http://api.giphy.com/v1/gifs/search?q=" + inputVal + "&api_key=dc6zaTOxFJmzC",
 			context: document.body
 		}).done(function(res) {
 			console.log(res)
@@ -41,5 +42,15 @@ $("document").ready( function(){
 				addSingle(res.data[i]);
 			}
 		});
+	}
+
+	$("#Search").on("click", function(e){
+		search();
+	});
+
+	$("#SearchInput").on('keypress', function(e){
+		if(e.keyCode === 13){
+			search();
+		}
 	});
 });

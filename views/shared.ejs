@@ -2,13 +2,17 @@
 <html>
 	<head>
 		<title>Shared files</title>
+		<link href='../bower_components/bootstrap/dist/css/bootstrap.min.css' rel='stylesheet'></link>
 	</head>
 	<body>
 		These are the gifs you have shared (clicked on)
     	<ul>
 		<% for(var i=0; i < results.length; i++) { %>
 			<% if (results[i]){ %>
-				<img src='/single?id=<%= results[i].fileId %>'></img>
+				<li>
+					<img src='/single?id=<%= results[i].fileId %>'></img>
+					<span> tagged as: <%= results[i].tagName || 'N/A' %></span>
+				</li>
 			<% } %>
 		<% } %>
 		</ul>

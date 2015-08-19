@@ -97,7 +97,7 @@ app.get('/save', ensureAuthenticated, function (req, res) {
 });
 
 //get gifs that this user has saved (not public)
-app.get('/shared', ensureAuthenticated, function (req, res) {
+app.get('/saved', ensureAuthenticated, function (req, res) {
 	var userId = req.user.id;
 
 	MongoClient.connect(mongoUrl, function(err, db) {
