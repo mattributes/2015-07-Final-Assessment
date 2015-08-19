@@ -8,16 +8,18 @@ var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert')
 var ObjectId = require('mongodb').ObjectID;
 
+//TODO env specific
 var mongoUrl = 'mongodb://localhost:27017/hrFinal';
 
 var passport = require('passport');
 var session = require('express-session');
 var GitHubStrategy = require('passport-github2').Strategy;
 
+//TODO refactor to get from env var
 var GITHUB_CLIENT_ID = "b06d321373091e0d8c09"
 var GITHUB_CLIENT_SECRET = "69c83cd46f482c76d460c143cdccb71733e8af51";
 
-app.set('view engine', 'ejs');  
+app.set('view engine', 'ejs');
 
 app.use(session({ secret: 'hrfinal' }));
 app.use(passport.initialize());
@@ -61,7 +63,6 @@ app.get('/user', ensureAuthenticated, function (req, res) {
   res.json(req.user);
 });
 
-//TODO refactor using router
 app.get('/', ensureAuthenticated, function (req, res) {
   res.sendfile('./views/' + 'index.html');
 });
@@ -75,6 +76,7 @@ app.get('/save', ensureAuthenticated, function (req, res) {
 	var src = req.query.src;
 	var tagName = req.query.tagName;
 
+	//save as unique id to avoid any collisions.
 	var fileId = uuid.v1();
 	request(src)
 		.pipe(fs.createWriteStream(util.format('public/gifs/%s.gif', fileId)));
@@ -96,7 +98,7 @@ app.get('/save', ensureAuthenticated, function (req, res) {
 	});
 });
 
-//get gifs that this user has saved (not public)
+//get gifs that this user has saved
 app.get('/saved', ensureAuthenticated, function (req, res) {
 	var userId = req.user.id;
 
@@ -116,6 +118,7 @@ app.get('/saved', ensureAuthenticated, function (req, res) {
 	});
 });
 
+//get a single gif
 app.get('/single', ensureAuthenticated, function (req, res) {
 	var id = req.query.id;
 
@@ -182,6 +185,7 @@ var server = app.listen(3000, function () {
   console.log('Started');
 });
 
+//middleware for checking user session
 function ensureAuthenticated(req, res, next) {
 	if (req.isAuthenticated()) {
 		return next(); 

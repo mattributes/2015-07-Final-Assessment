@@ -1,3 +1,4 @@
+//TODO this would be a lot cleaner in angular or react
 $("document").ready( function(){
 	var addSingle = function(obj){
 		var src = obj.images.fixed_width_small.url;
@@ -48,6 +49,7 @@ $("document").ready( function(){
 		search();
 	});
 
+	//handle enter key
 	$("#SearchInput").on('keypress', function(e){
 		if(e.keyCode === 13){
 			search();
