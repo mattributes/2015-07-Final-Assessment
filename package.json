@@ -4,7 +4,8 @@
   "description": "SA",
   "main": "main.js",
   "scripts": {
-    "test": "test.js"
+    "test": "test.js",
+    "start": "node main.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,16 @@
   "bugs": {
     "url": "https://github.com/mattributes/2015-07-Final-Assessment/issues"
   },
-  "homepage": "https://github.com/mattributes/2015-07-Final-Assessment#readme"
+  "homepage": "https://github.com/mattributes/2015-07-Final-Assessment#readme",
+  "dependencies": {
+    "ejs": "^2.3.3",
+    "express": "^4.13.3",
+    "express-session": "^1.11.3",
+    "mongodb": "^2.0.42",
+    "mongoose": "^4.1.3",
+    "passport": "^0.2.2",
+    "passport-github2": "^0.1.9",
+    "request": "^2.60.0",
+    "uuid": "^2.0.1"
+  }
 }

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tagged files for <%= tagName %></title>
+	</head>
+	<body>
+		Results that match tagName: <%= tagName %>
+    	<ul>
+		<% for(var i=0; i < results.length; i++) { %>
+			<% if (results[i]){ %>
+				<img src='/single?id=<%= results[i].fileId %>'></img>
+			<% } %>
+		<% } %>
+		</ul>
+	</body>
+</html>

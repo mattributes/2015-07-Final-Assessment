@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Shared files</title>
+	</head>
+	<body>
+		These are the gifs you have shared (clicked on)
+    	<ul>
+		<% for(var i=0; i < results.length; i++) { %>
+			<% if (results[i]){ %>
+				<img src='/single?id=<%= results[i].fileId %>'></img>
+			<% } %>
+		<% } %>
+		</ul>
+	</body>
+</html>
